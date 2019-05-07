@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net.Mime;
 using IdentityServer4.Models;
 
 namespace IdentityServerForAbp.Models
@@ -19,8 +20,7 @@ namespace IdentityServerForAbp.Models
                 //}
             };
         }
-
-
+        
 
         public static IEnumerable<ApiResource> GetApiResources()
         {

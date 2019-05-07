@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace IdentityServerForAbp
 {
-    public class IdentityServerForAbpModule
+    public class IdentityServerForAbpModule : AbpModule
     {
+
     }
 }
