@@ -1,7 +1,6 @@
 ﻿using IdentityServerForAbp.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace IdentityServerForAbp
@@ -35,7 +34,9 @@ namespace IdentityServerForAbp
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
 
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
             app.Run(async (context) =>
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
             {
                 //await context.Response.WriteAsync("Hello World!");
             });
