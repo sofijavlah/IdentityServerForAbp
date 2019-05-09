@@ -1,0 +1,671 @@
+DEBUG 2019-05-09 14:40:43,382 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 14:40:43,456 [1    ] Abp.Modules.AbpModuleManager             - Found 10 ABP modules in total.
+DEBUG 2019-05-09 14:40:43,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:40:43,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:40:43,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:40:43,475 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:40:43,475 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:40:43,475 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:40:43,475 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:40:43,475 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:40:43,476 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:40:43,476 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:40:43,478 [1    ] Abp.Modules.AbpModuleManager             - 10 modules loaded.
+WARN  2019-05-09 14:40:43,693 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - No class found derived from AbpDbContext.
+DEBUG 2019-05-09 14:40:43,717 [1    ] Abp.Localization.LocalizationManager     - Initializing 2 localization sources.
+DEBUG 2019-05-09 14:40:43,743 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-05-09 14:40:43,751 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+FATAL 2019-05-09 14:40:43,788 [1    ] Abp.AbpBootstrapper                      - Castle.MicroKernel.Handlers.HandlerException: Can't create component 'Abp.BackgroundJobs.BackgroundJobStore' as it has dependencies to be satisfied.
+
+'Abp.BackgroundJobs.BackgroundJobStore' is waiting for the following dependencies:
+- Service 'Abp.Domain.Repositories.IRepository`2[[Abp.BackgroundJobs.BackgroundJobInfo, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null],[System.Int64, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' which was not registered.
+
+   at Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Resolvers.DefaultDependencyResolver.Resolve(CreationContext context, ISubDependencyResolver contextHandlerResolver, ComponentModel model, DependencyModel dependency)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateConstructorArguments(ConstructorCandidate constructor, CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve[T]()
+   at Abp.AbpKernelModule.PostInitialize() in D:\Github\aspnetboilerplate\src\Abp\AbpKernelModule.cs:line 83
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+Castle.MicroKernel.Handlers.HandlerException: Can't create component 'Abp.BackgroundJobs.BackgroundJobStore' as it has dependencies to be satisfied.
+
+'Abp.BackgroundJobs.BackgroundJobStore' is waiting for the following dependencies:
+- Service 'Abp.Domain.Repositories.IRepository`2[[Abp.BackgroundJobs.BackgroundJobInfo, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null],[System.Int64, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' which was not registered.
+
+   at Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Resolvers.DefaultDependencyResolver.Resolve(CreationContext context, ISubDependencyResolver contextHandlerResolver, ComponentModel model, DependencyModel dependency)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateConstructorArguments(ConstructorCandidate constructor, CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy, Boolean ignoreParentContext)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve[T]()
+   at Abp.AbpKernelModule.PostInitialize() in D:\Github\aspnetboilerplate\src\Abp\AbpKernelModule.cs:line 83
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+DEBUG 2019-05-09 14:45:50,700 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 14:45:50,732 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 14:45:50,747 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,752 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,752 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,752 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,752 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,753 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,754 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,754 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,754 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,754 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,754 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,754 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,754 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:45:50,757 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 14:45:50,809 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:45:50,809 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:45:50,809 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:45:50,809 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+FATAL 2019-05-09 14:47:45,167 [1    ] Abp.AbpBootstrapper                      - System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+DEBUG 2019-05-09 14:48:53,810 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 14:48:53,845 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 14:48:53,861 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,869 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,869 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,869 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,870 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,870 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,870 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,870 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,871 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,871 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,871 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,871 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,871 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,871 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,871 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,872 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,872 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:48:53,874 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 14:48:53,925 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:48:53,925 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:48:53,925 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:48:53,925 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+FATAL 2019-05-09 14:49:09,424 [1    ] Abp.AbpBootstrapper                      - System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+FATAL 2019-05-09 14:49:16,918 [1    ] soft.AspNetCore.Hosting.Internal.WebHost - Application startup exception
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 67
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 38
+   at IdentityServerForAbp.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in C:\Users\Bild324\Documents\GitHub\IdentityServerForAbp\IdentityServerForAbp\Startup.cs:line 53
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.Internal.AutoRequestServicesStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+DEBUG 2019-05-09 14:49:31,799 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 14:49:31,829 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 14:49:31,845 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,850 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,850 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,850 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,851 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,851 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,851 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,851 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,852 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,852 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,852 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,852 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,852 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,852 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,852 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,853 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,853 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:31,855 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 14:49:31,913 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:49:31,913 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:49:31,913 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:49:31,913 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+FATAL 2019-05-09 14:49:36,646 [1    ] Abp.AbpBootstrapper                      - System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+FATAL 2019-05-09 14:49:38,435 [1    ] soft.AspNetCore.Hosting.Internal.WebHost - Application startup exception
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 67
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 38
+   at IdentityServerForAbp.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in C:\Users\Bild324\Documents\GitHub\IdentityServerForAbp\IdentityServerForAbp\Startup.cs:line 53
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.Internal.AutoRequestServicesStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+DEBUG 2019-05-09 14:49:43,267 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 14:49:43,309 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 14:49:43,326 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,331 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,331 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,331 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,332 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,332 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,332 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,332 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,332 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,333 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,333 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,333 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,333 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,333 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,333 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,333 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,334 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:49:43,336 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 14:49:43,385 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:49:43,385 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:49:43,385 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:49:43,385 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:50:03,640 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 14:50:03,678 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 14:50:03,693 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,700 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,700 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,700 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,700 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,701 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,701 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,701 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,701 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,701 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,702 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,702 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,702 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,702 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,702 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,702 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,702 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:50:03,705 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 14:50:03,755 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:50:03,755 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:50:03,755 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:50:03,755 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:51:29,254 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 14:51:29,292 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 14:51:29,307 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,312 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,312 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,312 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,312 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,313 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,313 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,313 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,313 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,313 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,314 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,314 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,314 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,314 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,314 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,314 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,315 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:51:29,317 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 14:51:29,369 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:51:29,369 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:51:29,369 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:51:29,369 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+FATAL 2019-05-09 14:51:46,927 [1    ] Abp.AbpBootstrapper                      - System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+DEBUG 2019-05-09 14:55:45,106 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 14:55:45,145 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 14:55:45,162 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,167 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,167 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,167 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,168 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,168 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,168 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,168 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,168 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,169 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,169 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,169 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,169 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,169 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,169 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,169 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,170 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:55:45,172 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 14:55:45,238 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:55:45,238 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:55:45,238 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:55:45,238 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+FATAL 2019-05-09 14:55:55,613 [1    ] Abp.AbpBootstrapper                      - System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+FATAL 2019-05-09 14:55:56,882 [1    ] soft.AspNetCore.Hosting.Internal.WebHost - Application startup exception
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 67
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 38
+   at IdentityServerForAbp.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in C:\Users\Bild324\Documents\GitHub\IdentityServerForAbp\IdentityServerForAbp\Startup.cs:line 53
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.Internal.AutoRequestServicesStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+DEBUG 2019-05-09 14:56:05,510 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 14:56:05,547 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 14:56:05,563 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,568 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,568 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,569 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,569 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,569 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,569 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,570 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,570 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,570 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,571 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,571 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,571 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,571 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,571 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,571 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,571 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:56:05,574 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 14:56:05,628 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:56:05,628 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:56:05,628 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:56:05,628 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:59:38,854 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 14:59:38,869 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 14:59:38,883 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,887 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,888 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,888 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,888 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,888 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,888 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,889 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,889 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,889 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,889 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,889 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,889 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,890 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,890 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,890 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,890 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 14:59:38,892 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 14:59:38,932 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:59:38,932 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:59:38,932 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 14:59:38,932 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+FATAL 2019-05-09 14:59:38,951 [1    ] Abp.AbpBootstrapper                      - System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+FATAL 2019-05-09 14:59:38,960 [1    ] soft.AspNetCore.Hosting.Internal.WebHost - Application startup exception
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 67
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 38
+   at IdentityServerForAbp.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in C:\Users\Bild324\Documents\GitHub\IdentityServerForAbp\IdentityServerForAbp\Startup.cs:line 53
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.Internal.AutoRequestServicesStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+DEBUG 2019-05-09 15:01:02,683 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 15:01:02,716 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 15:01:02,732 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,737 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,738 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,738 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,738 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,738 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,739 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,739 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,739 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,739 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,740 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,740 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,740 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,740 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,740 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,740 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,741 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:01:02,743 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 15:01:02,790 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:01:02,790 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:01:02,790 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:01:02,790 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+FATAL 2019-05-09 15:01:04,401 [1    ] Abp.AbpBootstrapper                      - System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+FATAL 2019-05-09 15:01:05,803 [1    ] soft.AspNetCore.Hosting.Internal.WebHost - Application startup exception
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 67
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 38
+   at IdentityServerForAbp.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in C:\Users\Bild324\Documents\GitHub\IdentityServerForAbp\IdentityServerForAbp\Startup.cs:line 53
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.Internal.AutoRequestServicesStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+DEBUG 2019-05-09 15:02:41,038 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 15:02:41,079 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 15:02:41,095 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,100 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,101 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,105 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,105 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,106 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,106 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,106 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,106 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,106 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,107 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,107 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,107 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,107 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,107 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,107 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,108 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:02:41,110 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 15:02:41,159 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:02:41,160 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:02:41,160 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:02:41,160 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+FATAL 2019-05-09 15:02:42,640 [1    ] Abp.AbpBootstrapper                      - System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+FATAL 2019-05-09 15:02:43,474 [1    ] soft.AspNetCore.Hosting.Internal.WebHost - Application startup exception
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.InitializeAbp(IApplicationBuilder app) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 67
+   at Abp.AspNetCore.AbpApplicationBuilderExtensions.UseAbp(IApplicationBuilder app, Action`1 optionsAction) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\AbpApplicationBuilderExtensions.cs:line 38
+   at IdentityServerForAbp.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in C:\Users\Bild324\Documents\GitHub\IdentityServerForAbp\IdentityServerForAbp\Startup.cs:line 53
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.Internal.AutoRequestServicesStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+DEBUG 2019-05-09 15:10:20,486 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 15:10:20,519 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 15:10:20,535 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,544 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,544 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,544 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,545 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,545 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,545 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,545 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,546 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,546 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,546 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,546 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,546 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,546 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,546 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,547 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,547 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:10:20,549 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 15:10:20,606 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:10:20,606 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:10:20,606 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:10:20,606 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:11:28,899 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 15:11:28,934 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 15:11:28,950 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,955 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,955 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,955 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,956 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,956 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,956 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,956 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,957 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,957 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,957 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,957 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,957 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,957 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,958 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,958 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,958 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:11:28,960 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 15:11:29,011 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:11:29,011 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:11:29,011 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:11:29,011 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+FATAL 2019-05-09 15:11:35,846 [1    ] Abp.AbpBootstrapper                      - System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at TestProject.TestProjectWebCoreModule.ConfigureTokenAuth() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 57
+   at TestProject.TestProjectWebCoreModule.PreInitialize() in C:\Users\Bild324\Documents\GitHub\TestProject\aspnet-core\src\TestProject.Web.Core\TestProjectWebCoreModule.cs:line 49
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at Abp.Modules.AbpModuleManager.StartModules() in D:\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:line 47
+   at Abp.AbpBootstrapper.Initialize() in D:\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:line 155
+DEBUG 2019-05-09 15:20:35,428 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 15:20:35,460 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 15:20:35,477 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,484 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,485 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,485 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,485 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,485 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,485 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,486 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,486 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,486 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,486 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,486 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,487 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,487 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,487 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,487 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,487 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:20:35,490 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 15:20:35,539 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:20:35,539 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:20:35,539 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:20:35,539 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:22:52,831 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-09 15:22:52,865 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2019-05-09 15:22:52,881 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: IdentityServerForAbp.IdentityServerForAbpModule, IdentityServerForAbp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,885 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectWebCoreModule, TestProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,885 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectApplicationModule, TestProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,886 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.TestProjectCoreModule, TestProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,886 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,886 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,886 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,886 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,887 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: TestProject.EntityFrameworkCore.TestProjectEntityFrameworkModule, TestProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,887 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,887 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,887 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,887 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerEntityFrameworkCoreModule, Abp.ZeroCore.IdentityServer4.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,887 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.IdentityServer4.AbpZeroCoreIdentityServerModule, Abp.ZeroCore.IdentityServer4, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,888 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,888 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,888 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-09 15:22:52,890 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2019-05-09 15:22:52,937 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:22:52,937 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:22:52,937 [1    ] o.Configuration.LanguageManagementConfig - Converted TestProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-05-09 15:22:52,937 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource

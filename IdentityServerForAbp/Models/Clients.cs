@@ -37,9 +37,9 @@ namespace IdentityServerForAbp.Models
                         //"customAPI.write"
                     },
                     RequireConsent = false,
-                    RedirectUris = {"https://localhost:21021/signin-oidc"},
-                    PostLogoutRedirectUris = {"https://localhost:21021/signout-callback-oidc"},
-                    FrontChannelLogoutUri = "https://localhost:21021/signout-oidc"
+                    RedirectUris = {"http://localhost:21021/signin-oidc"},
+                    PostLogoutRedirectUris = {"http://localhost:21021/signout-callback-oidc"},
+                    FrontChannelLogoutUri = "http://localhost:21021/signout-oidc"
                 }
             };
         }

@@ -1,7 +1,16 @@
-﻿using IdentityServerForAbp.Models;
+﻿using System;
+using Abp.AspNetCore;
+using Abp.Castle.Logging.Log4Net;
+using Abp.IdentityServer4;
+using Castle.Facilities.Logging;
+using IdentityServerForAbp.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using TestProject.Authentication.JwtBearer;
+using TestProject.Authorization.Users;
+using TestProject.EntityFrameworkCore;
+using TestProject.Identity;
 
 namespace IdentityServerForAbp
 {
@@ -9,16 +18,28 @@ namespace IdentityServerForAbp
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+
+            services.AddMvc();
+
+            IdentityRegistrar.Register(services);
+            
             services.AddIdentityServer()
                 .AddInMemoryClients(Clients.Get())
                 .AddInMemoryIdentityResources(Resources.GetIdentityResources())
                 .AddInMemoryApiResources(Resources.GetApiResources())
                 .AddTestUsers(Users.Get())
-                .AddDeveloperSigningCredential();
+                .AddDeveloperSigningCredential()
+                .AddAbpPersistedGrants<TestProjectDbContext>()
+                .AddAbpIdentityServer<User>();
 
-            services.AddMvc();
+            return services.AddAbp<IdentityServerForAbpModule>(
+                // Configure Log4Net logging
+                options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
+                    f => f.UseAbpLog4Net().WithConfig("log4net.config")
+                )
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,9 +50,12 @@ namespace IdentityServerForAbp
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseIdentityServer();
+            app.UseAbp();
 
             app.UseStaticFiles();
+
+            app.UseIdentityServer();
+            
             app.UseMvcWithDefaultRoute();
 
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously

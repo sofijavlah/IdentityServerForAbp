@@ -6,11 +6,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Abp.Castle.Log4Net" Version="4.3.0" />
+    <PackageReference Include="Abp.ZeroCore.IdentityServer4.EntityFrameworkCore" Version="4.3.0" />
     <PackageReference Include="IdentityServer4" Version="2.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\TestProject\aspnet-core\src\TestProject.EntityFrameworkCore\TestProject.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\TestProject\aspnet-core\src\TestProject.Web.Core\TestProject.Web.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Abp">
+      <HintPath>..\..\..\..\.nuget\packages\abp\4.3.0\lib\netstandard2.0\Abp.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
