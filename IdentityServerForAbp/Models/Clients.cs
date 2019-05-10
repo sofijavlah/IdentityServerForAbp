@@ -40,6 +40,26 @@ namespace IdentityServerForAbp.Models
                     RedirectUris = {"http://localhost:21021/signin-oidc"},
                     PostLogoutRedirectUris = {"http://localhost:21021/signout-callback-oidc"},
                     FrontChannelLogoutUri = "http://localhost:21021/signout-oidc"
+                },
+
+                new Client
+                {
+                    ClientId = "MyFirstApp",
+                    ClientName = "Client Example First App",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile
+                        //IdentityServerConstants.StandardScopes.Email,
+                        //"role",
+                        //"customAPI.write"
+                    },
+
+                    RequireConsent = false,
+                    RedirectUris = {"https://localhost:57553/signin-oidc"},
+                    PostLogoutRedirectUris = {"https://localhost:57553/signout-callback-oidc"},
+                    FrontChannelLogoutUri = "https://localhost:57553/signout-oidc"
                 }
             };
         }

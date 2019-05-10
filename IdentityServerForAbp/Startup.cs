@@ -29,7 +29,7 @@ namespace IdentityServerForAbp
                 .AddInMemoryClients(Clients.Get())
                 .AddInMemoryIdentityResources(Resources.GetIdentityResources())
                 .AddInMemoryApiResources(Resources.GetApiResources())
-                .AddTestUsers(Users.Get())
+                //.AddTestUsers(Users.Get())
                 .AddDeveloperSigningCredential()
                 .AddAbpPersistedGrants<TestProjectDbContext>()
                 .AddAbpIdentityServer<User>();
