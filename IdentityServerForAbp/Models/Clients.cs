@@ -31,7 +31,8 @@ namespace IdentityServerForAbp.Models
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowedScopes = new List<string>
                     {
-                        IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile
                         //IdentityServerConstants.StandardScopes.Email,
                         //"role",
                         //"customAPI.write"
@@ -42,25 +43,45 @@ namespace IdentityServerForAbp.Models
                     FrontChannelLogoutUri = "http://localhost:21021/signout-oidc"
                 },
 
-                new Client
-                {
-                    ClientId = "MyFirstApp",
-                    ClientName = "Client Example First App",
-                    AllowedGrantTypes = GrantTypes.Implicit,
-                    AllowedScopes = new List<string>
-                    {
-                        IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Profile
-                        //IdentityServerConstants.StandardScopes.Email,
-                        //"role",
-                        //"customAPI.write"
-                    },
+                //new Client
+                //{
+                //    ClientId = "MyFirstApp",
+                //    ClientName = "Client Example First App",
+                //    AllowedGrantTypes = GrantTypes.Implicit,
+                //    AllowedScopes = new List<string>
+                //    {
+                //        IdentityServerConstants.StandardScopes.OpenId,
+                //        IdentityServerConstants.StandardScopes.Profile
+                //        //IdentityServerConstants.StandardScopes.Email,
+                //        //"role",
+                //        //"customAPI.write"
+                //    },
 
-                    RequireConsent = false,
-                    RedirectUris = {"https://localhost:57553/signin-oidc"},
-                    PostLogoutRedirectUris = {"https://localhost:57553/signout-callback-oidc"},
-                    FrontChannelLogoutUri = "https://localhost:57553/signout-oidc"
-                }
+                //    RequireConsent = false,
+                //    RedirectUris = {"http://localhost:57553/signin-oidc"},
+                //    PostLogoutRedirectUris = {"http://localhost:57553/signout-callback-oidc"},
+                //    FrontChannelLogoutUri = "http://localhost:57553/signout-oidc"
+                //},
+
+                //new Client
+                //{
+                //    ClientId = "MySecondApp",
+                //    ClientName = "Client Example Second App",
+                //    AllowedGrantTypes = GrantTypes.Implicit,
+                //    AllowedScopes = new List<string>
+                //    {
+                //        IdentityServerConstants.StandardScopes.OpenId,
+                //        IdentityServerConstants.StandardScopes.Profile
+                //        //IdentityServerConstants.StandardScopes.Email,
+                //        //"role",
+                //        //"customAPI.write"
+                //    },
+
+                //    RequireConsent = false,
+                //    RedirectUris = {"http://127.0.0.1:57514/signin-oidc"},
+                //    PostLogoutRedirectUris = {"http://127.0.0.1:57514/signout-callback-oidc"},
+                //    FrontChannelLogoutUri = "http://127.0.0.1:57514/signout-oidc"
+                //}
             };
         }
     }

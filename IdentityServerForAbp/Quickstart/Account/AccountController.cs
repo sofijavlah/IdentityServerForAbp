@@ -17,6 +17,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Abp.AspNetCore.Mvc.Controllers;
+using IdentityServerForAbp.Quickstart.Account;
 using TestProject.Authorization.Users;
 using TestProject.Identity;
 
@@ -38,12 +39,13 @@ namespace IdentityServer4.Quickstart.UI
         private readonly IEventService _events;
         private readonly UserManager _userManager;
         private readonly SignInManager _signInManager;
+        private readonly UserStore _userStore;
 
         public AccountController(
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IAuthenticationSchemeProvider schemeProvider,
-            IEventService events, UserManager userManager, SignInManager signInManager, TestUserStore users = null)
+            IEventService events, UserManager userManager, SignInManager signInManager, UserStore userStore, TestUserStore users = null)
         {
             // if the TestUserStore is not in DI, then we'll just use the global users collection
             // this is where you would plug in your own custom identity management library (e.g. ASP.NET Identity)
@@ -55,6 +57,7 @@ namespace IdentityServer4.Quickstart.UI
             _events = events;
             _userManager = userManager;
             _signInManager = signInManager;
+            _userStore = userStore;
         }
 
         /// <summary>
@@ -114,31 +117,28 @@ namespace IdentityServer4.Quickstart.UI
 
             if (ModelState.IsValid)
             {
-                var user = await _userManager.FindByNameAsync(model.Username);
-
-                var validated = await _userManager.CheckPasswordAsync(user, model.Password);
-
                 // validate username/password against in-memory store
+                var user = await _userStore.FindByNameAsync(model.Username);
 
-                if (validated)
+                // issue authentication cookie with subject ID and username
+                var signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberLogin, false);
+
+                if (signInResult.Succeeded)
                 {
                     await _events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id.ToString(), user.Name));
 
-                    // only set explicit expiration here if user chooses "remember me". 
-                    // otherwise we rely upon expiration configured in cookie middleware.
-                    AuthenticationProperties props = null;
-                    if (AccountOptions.AllowRememberLogin && model.RememberLogin)
-                    {
-                        props = new AuthenticationProperties
-                        {
-                            IsPersistent = true,
-                            ExpiresUtc = DateTimeOffset.UtcNow.Add(AccountOptions.RememberMeLoginDuration)
-                        };
-                    };
-
-                    // issue authentication cookie with subject ID and username
-                    await _signInManager.SignInAsync(user, true);
-
+                    //// only set explicit expiration here if user chooses "remember me". 
+                    //// otherwise we rely upon expiration configured in cookie middleware.
+                    //AuthenticationProperties props = null;
+                    //if (AccountOptions.AllowRememberLogin && model.RememberLogin)
+                    //{
+                    //    props = new AuthenticationProperties
+                    //    {
+                    //        IsPersistent = true,
+                    //        ExpiresUtc = DateTimeOffset.UtcNow.Add(AccountOptions.RememberMeLoginDuration)
+                    //    };
+                    //};
+                    
                     if (context != null)
                     {
                         if (await _clientStore.IsPkceClientAsync(context.ClientId))
